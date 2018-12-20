@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bookingCon_tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="0dp"
+                    android:layout_weight="1"
+                    android:text="日時"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_first"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bookingCon_tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="時間"
+                    app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_first"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline5"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bookingCon_tv_plans"
+                        android:layout_width="456dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="目的"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_second"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/bookingCon_gline_first" />
+
+                    <TextView
+                        android:id="@+id/bookingCon_tv_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="場所"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_second"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                        app:layout_constraintStart_toStartOf="@+id/guideline5"
+                        app:layout_constraintTop_toTopOf="@+id/bookingCon_gline_first" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/bookingCon_tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="予約者"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/bookingCon_gline_third"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/bookingCon_gline_second" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
