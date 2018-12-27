@@ -75,45 +75,8 @@ public class BookingConActivity extends AppCompatActivity {
                 w = (String)parent.getItemAtPosition(position);
             }
             // 検索メソッドを呼び出す
-            rsvtHistorySearch(ST_PURPOSE,w);
+            rsvtScheduledSearch(ST_PURPOSE,w);
         });
-
-        /**
-         * 検索を行うメソッド
-         * @param sachType
-         * @param sachString
-         */
-        private void rsvtHistorySearch(int sachType, String sachString){
-            searchSQLVal[sachType] = sachString;
-
-            // データベース接続
-            TestOpenHelper helper = new TestOpenHelper(BookingConActivity.this);
-            try(SQLiteDatabase db =helper.getWritableDatabase()){
-                // SQL文の編集
-                String strSQL = SQLSTRBASE +
-                        searchSQLVal[0] +
-                        SQLSTRCON1 + searchSQLVal[1] +
-                        SQLSTRCON2 + searchSQLVal[2] +
-                        SQLSTRCONEND;
-                // SQL文の実行
-                Cursor cursor = db.rawQuery(strSQL,null);
-                // SQL
-                String note = "";
-                if(cursor.moveToNext()){
-
-                }
-            }
-            // データベース解放
-            helper.close();
-
-        }
-
-//        EditTextの入力制限用
-//        EditText et_c = (EditText)findViewById(R.id.bookingCon_ed_tv_com);
-//        EditText et_n = (EditText)findViewById(R.id.bookingCon_ed_tv_name);
-//        リストなどのコンテンツでフィルタされた文字列
-//        et.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_FILTER);
-
 
         //会社名のEdittextの変更を検知する
         EditText editText_com = findViewById(R.id.bookingCon_ed_tv_com);
@@ -132,9 +95,8 @@ public class BookingConActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //テキスト変更後（現在進行形で入力値）
-
-
+                //テキスト変更後（現在入力されてい値）
+                rsvtScheduledSearch(ST_PURPOSE,s);
             }
         });
 
@@ -155,13 +117,42 @@ public class BookingConActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //テキスト変更後（現在進行形で入力されていされている値）
-
-
-
+                //テキスト変更後（現在入力されている値）
+                rsvtScheduledSearch(ST_PURPOSE,s);
             }
         });
 
+        /**
+         * 検索を行うメソッド
+         * @param sachType
+         * @param sachString
+         */
+        //予約検索
+        private void rsvtScheduledSearch(int sachType, String sachString){
+            searchSQLVal[sachType] = sachString;
+
+            // データベース接続
+            TestOpenHelper helper = new TestOpenHelper(BookingConActivity.this);
+            try(SQLiteDatabase db =helper.getWritableDatabase()){
+                // SQL文の編集
+                String strSQL = SQLSTRBASE +
+                        searchSQLVal[0] +
+                        SQLSTRCON1 + searchSQLVal[1] +
+                        SQLSTRCON2 + searchSQLVal[2] +
+                        SQLSTRCON3 + searchSQLVal[3] +
+                        SQLSTRCONEND;
+                // SQL文の実行
+                Cursor cursor = db.rawQuery(strSQL,null);
+                // SQL
+                String note = "";
+                if(cursor.moveToNext()){
+
+                }
+            }
+            // データベース解放
+            helper.close();
+
+        }
 
         // ListViewに表示する項目を生成
         ArrayList<HashMap<String, String>> listData = new ArrayList<>();
